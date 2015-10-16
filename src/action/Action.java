@@ -103,5 +103,7 @@ public abstract class Action
 		return this.totalTime;
 	}
 	
+	public abstract boolean equals(Object o);
+	
 }
 

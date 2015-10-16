@@ -62,10 +62,11 @@ public abstract class TestScheduler extends TestAction {
 			assertTrue(action1.isInProgess());
 			assertTrue(subScheduler.isInProgess());
 			scheduler.doStep();
+		} 
+		if (action1.getTotalTime() <= 2) {
+			assertTrue(subScheduler.isFinished());
+			assertTrue(action1.isFinished());
 		}
-		
-		assertTrue(subScheduler.isFinished());
-		assertTrue(action1.isFinished());
 
 	}
 
