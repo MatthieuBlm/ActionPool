@@ -15,6 +15,7 @@ public class TestWrongFairEntity extends TestFair {
 	
 	public Action createAction(int nb) {
 		return new NStepAction(nb);
+		/*return new OneStepAction();*/
 	}
 
 }

@@ -37,23 +37,29 @@ public abstract class TestFair extends TestScheduler {
 		
 		scheduler.doStep();
 		
-		assertTrue(action1.isInProgess());
-		assertTrue(action2.isReady());
+		if (action1.getTotalTime() == 3 && action2.getTotalTime() == 2) {
+			assertTrue(action1.isInProgess());
+			assertTrue(action2.isReady());
+			
+			scheduler.doStep();
+			
+			assertTrue(action1.isInProgess());
+			assertTrue(action2.isInProgess());
+			
+			scheduler.doStep();
+			
+			assertTrue(action1.isInProgess());
+			assertTrue(action2.isInProgess());
+			
+			scheduler.doStep();
+			
+			assertTrue(action1.isInProgess());
+			assertTrue(action2.isFinished());
+		} else {
+			assertTrue(action1.isFinished());
+			assertFalse(action2.isFinished());
+		}
 		
-		scheduler.doStep();
-		
-		assertTrue(action1.isInProgess());
-		assertTrue(action2.isInProgess());
-		
-		scheduler.doStep();
-		
-		assertTrue(action1.isInProgess());
-		assertTrue(action2.isInProgess());
-		
-		scheduler.doStep();
-		
-		assertTrue(action1.isInProgess());
-		assertTrue(action2.isFinished());
 		
 	}
 
