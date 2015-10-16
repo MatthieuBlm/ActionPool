@@ -10,6 +10,18 @@ import action.Action;
 
 public class Foreseeable extends Action
 {
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * attribute which contains the remaining time 
+	 * <!--  end-user-doc  -->
+	 * @generated
+	 * @ordered
+	 */
+	
+	protected int remainingTime;
+	
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!--  end-user-doc  -->
@@ -17,18 +29,7 @@ public class Foreseeable extends Action
 	 */
 	public Foreseeable(int totalTime){
 		super(totalTime);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	public Foreseeable Foreaseeable(int timeToEnd) {
-		// TODO implement me
-		return null;	
+		this.remainingTime = totalTime;
 	}
 	
 	/**
@@ -39,8 +40,7 @@ public class Foreseeable extends Action
 	 */
 	
 	public boolean isReady() {
-		// TODO implement me
-		return false;	
+		return (remainingTime == totalTime);	
 	}
 	
 	/**
@@ -51,8 +51,7 @@ public class Foreseeable extends Action
 	 */
 	
 	public boolean isInProgress() {
-		// TODO implement me
-		return false;	
+		return (!isReady() && !isFinished());	
 	}
 	
 	
@@ -64,19 +63,17 @@ public class Foreseeable extends Action
 	 */
 	
 	public void reallyDoOneStep() {
-		// TODO implement me	
+		remainingTime--;
 	}
 
 	@Override
 	public boolean isInProgess() {
-		// TODO Auto-generated method stub
-		return false;
+		return (!isReady() && !isFinished());
 	}
 
 	@Override
 	public boolean isFinished() {
-		// TODO Auto-generated method stub
-		return false;
+		return (remainingTime <= 0);
 	}
 	
 }

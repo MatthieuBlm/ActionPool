@@ -1,5 +1,8 @@
 package action.scheduler;
+import java.util.ArrayList;
 import java.util.List;
+
+import exception.ActionFinishedException;
 
 import action.Action;
 
@@ -19,7 +22,7 @@ public abstract class Scheduler extends Action
 	 * @ordered
 	 */
 	
-	protected List <Action> actions;
+	protected List<Action> actions;
 	
 	/**
 	 * <!-- begin-user-doc -->
@@ -28,7 +31,7 @@ public abstract class Scheduler extends Action
 	 * @ordered
 	 */
 	
-	protected int remainingTime;
+	protected boolean isInitialized;
 	
 
 	/**
@@ -38,9 +41,9 @@ public abstract class Scheduler extends Action
 	 * @ordered
 	 */
 	
-	public Scheduler(int timeToEnd) {
-		super(timeToEnd);
-		// TODO construct me	
+	public Scheduler() {
+		super(0);
+		this.actions = new ArrayList<Action>();
 	}
 	
 	/**
@@ -51,7 +54,15 @@ public abstract class Scheduler extends Action
 	 */
 	
 	public void addAction(Action a) {
-		// TODO implement me	
+		isInitialized = true;
+		if (a.isFinished()) {
+			throw new IllegalArgumentException("Can't add an already finished action");
+		}
+		if (isFinished()) {
+			throw new IllegalArgumentException("ou can't add an action to a finished scheduler");
+		} else {
+			actions.add(a);
+		}
 	}
 	
 	/**
@@ -62,32 +73,13 @@ public abstract class Scheduler extends Action
 	 */
 	
 	public boolean isReady() {
-		// TODO implement me
-		return false;	
+		return (isInitialized && isReady);	
 	}
 	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
 	
-	public boolean isInProgress() {
-		// TODO implement me
-		return false;	
-	}
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
+	@Override
 	public boolean isFinished() {
-		// TODO implement me
-		return false;	
+		return (isInitialized && !isReady() && actions.isEmpty());
 	}
 	
 	/**
@@ -97,7 +89,29 @@ public abstract class Scheduler extends Action
 	 * @ordered
 	 */
 	
-	public abstract void reallyDoOneStep() ;
+	public void reallyDoOneStep() {
+		isReady= false;
+		Action nextAction = nextAction();
+		try {
+			nextAction.doStep();
+		} catch (ActionFinishedException e) {
+			System.out.println(e.getMessage());
+		}
+		if (nextAction.isFinished()) {
+			actions.remove(0);
+		}
+	}
+
+	public List<Action> getListAction() {
+		return actions;
+	}
+	
+	protected abstract Action nextAction();
+
+	@Override
+	public boolean isInProgess() {
+		return (isInitialized && !isFinished() && !isFinished());
+	}
 	
 }
 

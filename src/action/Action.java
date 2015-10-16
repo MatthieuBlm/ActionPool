@@ -1,5 +1,8 @@
 package action;
 
+import exception.ActionFinishedException;
+
+
 
 /**
  * <!-- begin-user-doc -->
@@ -11,6 +14,7 @@ public abstract class Action
 {
 	/**
 	 * <!-- begin-user-doc -->
+	 * attribute which is true if the action is ready else false
 	 * <!--  end-user-doc  -->
 	 * @generated
 	 * @ordered
@@ -18,17 +22,10 @@ public abstract class Action
 	
 	protected boolean isReady;
 	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	protected boolean isInitialized;
 	
 	/**
 	 * <!-- begin-user-doc -->
+	 * attribute totalTime contains the total time for the execution
 	 * <!--  end-user-doc  -->
 	 * @generated
 	 * @ordered
@@ -40,14 +37,16 @@ public abstract class Action
 	/**
 	 * <br>
 	 * <!-- begin-user-doc -->
+	 * Constructor Action
 	 * <!--  end-user-doc  -->
+	 * @param timeToEnd contains the time to execute the action
 	 * @generated
 	 * @ordered
 	 */
 	
 	public Action(int timeToEnd) {
-		super();
-		// TODO construct me	
+		this.totalTime= timeToEnd;	
+		isReady =true;
 	}
 	
 	/**
@@ -57,7 +56,7 @@ public abstract class Action
 	 * @ordered
 	 */
 	
-	public abstract boolean isReady() ;
+	public abstract boolean isReady();
 	
 	/**
 	 * <!-- begin-user-doc -->
@@ -75,7 +74,7 @@ public abstract class Action
 	 * @ordered
 	 */
 	
-	public abstract boolean isFinished() ;
+	public abstract boolean isFinished();
 	
 	/**
 	 * <!-- begin-user-doc -->
@@ -84,8 +83,11 @@ public abstract class Action
 	 * @ordered
 	 */
 	
-	public void doStep() {
-		// TODO implement me	
+	public final void doStep() throws ActionFinishedException{
+			if (this.isFinished()) {
+				throw new ActionFinishedException();
+			}
+			reallyDoOneStep();
 	}
 	
 	/**
@@ -96,6 +98,10 @@ public abstract class Action
 	 */
 	
 	public abstract void reallyDoOneStep() ;
+	
+	public int getTotalTime() {
+		return this.totalTime;
+	}
 	
 }
 

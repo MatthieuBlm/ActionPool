@@ -7,36 +7,25 @@ package action.scheduler;
  * @generated
  */
 
-public class Fair extends Scheduler
+public abstract class Fair extends Scheduler
 {
+	protected int turn;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!--  end-user-doc  -->
+	 * @generated
+	 * @ordered
+	 */
+	
+	public Fair() {
+		super();	
+		turn = 0;
+	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	public Fair(int timeToEnd) {
-		super(timeToEnd);
-		// TODO construct me	
-	}
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	public void reallyDoOneStep() {
-		// TODO implement me	
-	}
 
 	@Override
-	public boolean isInProgess() {
-		// TODO Auto-generated method stub
-		return false;
+	protected Scheduler nextAction() {
+		return (Scheduler) actions.get((turn++)%(this.totalTime));
 	}
 	
 }

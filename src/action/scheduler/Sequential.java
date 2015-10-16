@@ -7,7 +7,7 @@ package action.scheduler;
  * @generated
  */
 
-public class Sequential extends Scheduler
+public abstract class Sequential extends Scheduler
 {
 
 	/**
@@ -17,27 +17,16 @@ public class Sequential extends Scheduler
 	 * @ordered
 	 */
 	
-	public Sequential(int timeToEnd) {
-		super(timeToEnd);
-		// TODO construct me	
-	}
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	public void reallyDoOneStep() {
-		// TODO implement me	
+	public Sequential() {
+		super();
 	}
 
+
 	@Override
-	public boolean isInProgess() {
-		// TODO Auto-generated method stub
-		return false;
+	protected Scheduler nextAction() {
+		return (Scheduler) actions.get(0);
 	}
+
 	
 }
 

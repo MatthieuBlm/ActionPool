@@ -8,6 +8,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import action.Action;
+import action.scheduler.Scheduler;
 
 /**
  * @author meyer
@@ -26,6 +27,12 @@ public class TestSwimmer extends TestSequential {
 	@Override
 	@Test
 	protected Action createAction(int nb) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	protected Scheduler createScheduler(Action a) {
 		// TODO Auto-generated method stub
 		return null;
 	}
