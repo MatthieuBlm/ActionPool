@@ -37,7 +37,7 @@ public abstract class TestFair extends TestScheduler {
 		
 		scheduler.doStep();
 		
-		if (action1.getTotalTime() == 3 && action2.getTotalTime() == 2) {
+		if (action1.getTotalTime() >1 && action2.getTotalTime() >1) {
 			assertTrue(action1.isInProgess());
 			assertTrue(action2.isReady());
 			
@@ -48,13 +48,18 @@ public abstract class TestFair extends TestScheduler {
 			
 			scheduler.doStep();
 			
-			assertTrue(action1.isInProgess());
-			assertTrue(action2.isInProgess());
-			
-			scheduler.doStep();
-			
-			assertTrue(action1.isInProgess());
-			assertTrue(action2.isFinished());
+			if (action1.getTotalTime() > 2) {
+				assertTrue(action1.isInProgess());
+				assertTrue(action2.isInProgess());
+				
+				scheduler.doStep();
+				
+				assertTrue(action1.isInProgess());
+				assertTrue(action2.isFinished());
+			} else {
+				assertTrue(action1.isFinished());
+				assertTrue(action2.isInProgess());
+			}
 		} else {
 			assertTrue(action1.isFinished());
 			assertFalse(action2.isFinished());
