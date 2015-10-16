@@ -15,13 +15,6 @@ import action.Action;
  */
 public abstract class TestAction {
 
-	/**
-	 * Test method for {@link action.Action#Action(int)}.
-	 */
-	@Test
-	public void testAction() {
-		fail("Not yet implemented");
-	}
 
 	/**
 	 * Test method for {@link action.Action#isReady()}.
@@ -72,6 +65,8 @@ public abstract class TestAction {
 	}
 	
 	@Test
-	public abstract Action createAction();
+	protected abstract Action createAction(int nb);
+
+
 
 }

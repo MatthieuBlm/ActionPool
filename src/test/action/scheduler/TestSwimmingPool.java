@@ -39,9 +39,10 @@ public class TestSwimmingPool extends TestFair {
 		fail("Not yet implemented");
 	}
 
+
 	@Override
 	@Test
-	public Action createAction() {
+	protected Action createAction(int nb) {
 		// TODO Auto-generated method stub
 		return null;
 	}

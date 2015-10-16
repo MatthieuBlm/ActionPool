@@ -25,7 +25,7 @@ public class TestSwimmer extends TestSequential {
 
 	@Override
 	@Test
-	public Action createAction() {
+	protected Action createAction(int nb) {
 		// TODO Auto-generated method stub
 		return null;
 	}

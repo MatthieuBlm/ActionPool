@@ -5,9 +5,10 @@ package test.action.foreseeable;
 
 import static org.junit.Assert.*;
 
+import org.junit.Before;
 import org.junit.Test;
 
-import action.Action;
+import action.foreseeable.Foreseeable;
 
 import test.action.TestAction;
 
@@ -15,14 +16,20 @@ import test.action.TestAction;
  * @author meyer
  *
  */
-public class TestForeseeable extends TestAction {
+public abstract class TestForeseeable extends TestAction {
 
-	/**
-	 * Test method for {@link action.foreseeable.Foreseeable#reallyDoOneStep()}.
-	 */
+	protected Foreseeable action;
+	
+	@Before 
+	public void init() {
+		this.action = (Foreseeable) createAction(2);
+	}
+	
 	@Test
-	public void testReallyDoOneStep() {
-		fail("Not yet implemented");
+	public void testerForeseeableAction() {
+		assertTrue(action.isReady());
+		assertFalse(action.isInProgress());
+		assertFalse(action.isFinished());
 	}
 
 	/**
@@ -30,14 +37,14 @@ public class TestForeseeable extends TestAction {
 	 */
 	@Test
 	public void testDoStep() {
-		fail("Not yet implemented");
-	}
-
-	@Override
-	@Test
-	public Action createAction() {
-		// TODO Auto-generated method stub
-		return null;
+		this.action.doStep();
+		assertFalse(action.isReady());
+		assertTrue(action.isInProgess());
+		assertFalse(action.isFinished());
+		this.action.doStep();
+		assertFalse(action.isReady());
+		assertFalse(action.isInProgess());
+		assertTrue(action.isFinished());
 	}
 
 }

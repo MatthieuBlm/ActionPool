@@ -35,6 +35,6 @@ public abstract class TestScheduler extends TestAction {
 
 	@Override
 	@Test
-	public abstract Action createAction() ;
+	protected abstract Action createAction(int nb) ;
 
 }
