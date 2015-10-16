@@ -44,6 +44,7 @@ public class TestWrongSequentialEntity extends TestSequential {
 
 	public Action createAction(int nb) {
 		return new OneStepAction();
+		/* return new NStepAction(); */
 	}
 
 }
