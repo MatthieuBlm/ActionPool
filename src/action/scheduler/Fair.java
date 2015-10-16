@@ -1,5 +1,7 @@
 package action.scheduler;
 
+import action.Action;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -24,8 +26,8 @@ public abstract class Fair extends Scheduler
 
 
 	@Override
-	protected Scheduler nextAction() {
-		return (Scheduler) actions.get((turn++)%(this.totalTime));
+	protected Action nextAction() {
+		return actions.get((turn++)%(this.actions.size()));
 	}
 	
 }

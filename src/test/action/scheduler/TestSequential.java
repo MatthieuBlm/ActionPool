@@ -3,9 +3,13 @@
  */
 package test.action.scheduler;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
+
+import action.Action;
+import action.scheduler.Scheduler;
+import exception.ActionFinishedException;
 
 /**
  * @author meyer
@@ -14,27 +18,37 @@ import org.junit.Test;
 public abstract class TestSequential extends TestScheduler {
 
 	/**
-	 * Test method for {@link action.scheduler.Sequential#isInProgess()}.
+	 * Test method for {@link action.scheduler.Scheduler#reallyDoOneStep()}.
+	 * Test method for {@link action.Action#doStep()}.
+	 * @throws ActionFinishedException 
 	 */
 	@Test
-	public void testIsInProgess() {
-		fail("Not yet implemented");
-	}
-
-	/**
-	 * Test method for {@link action.scheduler.Sequential#reallyDoOneStep()}.
-	 */
-	@Test
-	public void testReallyDoOneStep() {
-		fail("Not yet implemented");
-	}
-
-	/**
-	 * Test method for {@link action.scheduler.Sequential#Sequential(int)}.
-	 */
-	@Test
-	public void testSequential() {
-		fail("Not yet implemented");
+	public void testReallyDoOneStepWithDoStepScheduler1() throws ActionFinishedException {
+		Action action1= createAction(2);
+		Action action2= createAction(1);
+		
+		Scheduler scheduler= createScheduler(action1);
+		scheduler.addAction(action2);
+		
+		assertTrue(action1.isReady());
+		assertTrue(action2.isReady());
+		
+		scheduler.doStep();
+		
+		if (action1.getTotalTime() == 2 && action2.getTotalTime() == 1) {
+			assertTrue(action1.isInProgess());
+			assertTrue(action2.isReady());
+			
+			scheduler.doStep();
+			
+			assertTrue(action1.isFinished());
+			assertTrue(action2.isReady());
+			
+		}
+		scheduler.doStep();
+		
+		assertTrue(action1.isFinished());
+		assertTrue(action2.isFinished());
 	}
 
 }

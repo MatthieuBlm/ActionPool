@@ -24,7 +24,7 @@ public class SwimmingPool extends Fair
 	 * @generated
 	 */
 	public SwimmingPool(){
-		super(0);
+		super();
 	}
 
 	/**

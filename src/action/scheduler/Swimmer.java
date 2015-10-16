@@ -74,7 +74,7 @@ public class Swimmer extends Sequential
 	 */
 	
 	public Swimmer(String name, BasketPool baskets, CubiclePool cubicles, int timeToUndress, int timeToSwim, int timeToDress) {
-		super(timeToUndress);
+		super();
 		// TODO construct me	
 	}
 	

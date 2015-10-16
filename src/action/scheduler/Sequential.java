@@ -1,5 +1,7 @@
 package action.scheduler;
 
+import action.Action;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -23,8 +25,8 @@ public abstract class Sequential extends Scheduler
 
 
 	@Override
-	protected Scheduler nextAction() {
-		return (Scheduler) actions.get(0);
+	protected Action nextAction() {
+		return actions.get(0);
 	}
 
 	
