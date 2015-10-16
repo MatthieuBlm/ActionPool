@@ -1,4 +1,3 @@
-package resource;
 
 
 
@@ -7,17 +6,17 @@ package resource;
  * <!--  end-user-doc  -->
  * @generated
  */
-public  interface Resource 
+
+public class Class
 {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!--  end-user-doc  -->
 	 * @generated
-	 * @ordered
 	 */
-	
-	public String description() ;
-	
-	
+	public Class(){
+		super();
+	}
+
 }
 

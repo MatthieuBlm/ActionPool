@@ -1,21 +1,34 @@
-/**
- * 
- */
 package resource;
 
-/**
- * @author meyer
- *
- */
-public class Cubicle implements Resource {
 
-	/* (non-Javadoc)
-	 * @see resource.Resource#description()
+/**
+ * <!-- begin-user-doc -->
+ * <!--  end-user-doc  -->
+ * @generated
+ */
+
+public class Cubicle implements Resource
+{
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!--  end-user-doc  -->
+	 * @generated
 	 */
-	@Override
-	public String description() {
-		// TODO Auto-generated method stub
-		return null;
+	public Cubicle(){
+		super();
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!--  end-user-doc  -->
+	 * @generated
+	 * @ordered
+	 */
+	
+	public String description() {
+		// TODO implement me
+		return "";	
+	}
+	
 }
+

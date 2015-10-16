@@ -5,4 +5,4 @@
  * @author meyer
  *
  */
-package resource;
+package test.action;

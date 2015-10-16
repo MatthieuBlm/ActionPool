@@ -1,4 +1,7 @@
-package action;
+package action.scheduler;
+import java.util.List;
+
+import action.Action;
 
 
 /**
@@ -7,7 +10,7 @@ package action;
  * @generated
  */
 
-public abstract class Action
+public abstract class Scheduler extends Action
 {
 	/**
 	 * <!-- begin-user-doc -->
@@ -16,7 +19,7 @@ public abstract class Action
 	 * @ordered
 	 */
 	
-	protected boolean isReady;
+	protected List <Action> actions;
 	
 	/**
 	 * <!-- begin-user-doc -->
@@ -25,28 +28,18 @@ public abstract class Action
 	 * @ordered
 	 */
 	
-	protected boolean isInitialized;
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	protected int totalTime;
+	protected int remainingTime;
 	
 
 	/**
-	 * <br>
 	 * <!-- begin-user-doc -->
 	 * <!--  end-user-doc  -->
 	 * @generated
 	 * @ordered
 	 */
 	
-	public Action(int timeToEnd) {
-		super();
+	public Scheduler(int timeToEnd) {
+		super(timeToEnd);
 		// TODO construct me	
 	}
 	
@@ -57,35 +50,44 @@ public abstract class Action
 	 * @ordered
 	 */
 	
-	public abstract boolean isReady() ;
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	public abstract boolean isInProgess() ;
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	public abstract boolean isFinished() ;
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	public void doStep() {
+	public void addAction(Action a) {
 		// TODO implement me	
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!--  end-user-doc  -->
+	 * @generated
+	 * @ordered
+	 */
+	
+	public boolean isReady() {
+		// TODO implement me
+		return false;	
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!--  end-user-doc  -->
+	 * @generated
+	 * @ordered
+	 */
+	
+	public boolean isInProgress() {
+		// TODO implement me
+		return false;	
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!--  end-user-doc  -->
+	 * @generated
+	 * @ordered
+	 */
+	
+	public boolean isFinished() {
+		// TODO implement me
+		return false;	
 	}
 	
 	/**

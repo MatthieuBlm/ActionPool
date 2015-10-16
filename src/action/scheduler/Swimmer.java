@@ -1,4 +1,6 @@
-package action;
+package action.scheduler;
+import resource.resourcePool.BasketPool;
+import resource.resourcePool.CubiclePool;
 
 
 /**
@@ -7,7 +9,7 @@ package action;
  * @generated
  */
 
-public abstract class Action
+public class Swimmer extends Sequential
 {
 	/**
 	 * <!-- begin-user-doc -->
@@ -16,7 +18,7 @@ public abstract class Action
 	 * @ordered
 	 */
 	
-	protected boolean isReady;
+	public String name;
 	
 	/**
 	 * <!-- begin-user-doc -->
@@ -25,7 +27,7 @@ public abstract class Action
 	 * @ordered
 	 */
 	
-	protected boolean isInitialized;
+	public BasketPool resourceBasket;
 	
 	/**
 	 * <!-- begin-user-doc -->
@@ -34,68 +36,47 @@ public abstract class Action
 	 * @ordered
 	 */
 	
-	protected int totalTime;
+	public CubiclePool resourceCubicle;
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!--  end-user-doc  -->
+	 * @generated
+	 * @ordered
+	 */
+	
+	public int timeToUndress;
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!--  end-user-doc  -->
+	 * @generated
+	 * @ordered
+	 */
+	
+	public int timeToSwim;
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!--  end-user-doc  -->
+	 * @generated
+	 * @ordered
+	 */
+	
+	public int timeToDress;
 	
 
 	/**
-	 * <br>
 	 * <!-- begin-user-doc -->
 	 * <!--  end-user-doc  -->
 	 * @generated
 	 * @ordered
 	 */
 	
-	public Action(int timeToEnd) {
-		super();
+	public Swimmer(String name, BasketPool baskets, CubiclePool cubicles, int timeToUndress, int timeToSwim, int timeToDress) {
+		super(timeToUndress);
 		// TODO construct me	
 	}
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	public abstract boolean isReady() ;
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	public abstract boolean isInProgess() ;
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	public abstract boolean isFinished() ;
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	public void doStep() {
-		// TODO implement me	
-	}
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	public abstract void reallyDoOneStep() ;
 	
 }
 

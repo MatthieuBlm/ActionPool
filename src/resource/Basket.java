@@ -1,21 +1,34 @@
-/**
- * 
- */
 package resource;
 
-/**
- * @author meyer
- *
- */
-public class Basket implements Resource {
 
-	/* (non-Javadoc)
-	 * @see resource.Resource#description()
+/**
+ * <!-- begin-user-doc -->
+ * <!--  end-user-doc  -->
+ * @generated
+ */
+
+public class Basket implements Resource
+{
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!--  end-user-doc  -->
+	 * @generated
 	 */
-	@Override
-	public String description() {
-		// TODO Auto-generated method stub
-		return null;
+	public Basket(){
+		super();
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!--  end-user-doc  -->
+	 * @generated
+	 * @ordered
+	 */
+	
+	public String description() {
+		// TODO implement me
+		return "";	
+	}
+	
 }
+

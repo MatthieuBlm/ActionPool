@@ -1,13 +1,17 @@
-package action;
+package resource.resourcePool;
+import java.util.List;
+
+import resource.Resource;
 
 
 /**
+ * <br>
  * <!-- begin-user-doc -->
  * <!--  end-user-doc  -->
  * @generated
  */
 
-public abstract class Action
+public abstract class ResourcePool<R extends Resource>
 {
 	/**
 	 * <!-- begin-user-doc -->
@@ -16,7 +20,7 @@ public abstract class Action
 	 * @ordered
 	 */
 	
-	protected boolean isReady;
+	protected List<Resource> resources;
 	
 	/**
 	 * <!-- begin-user-doc -->
@@ -25,7 +29,7 @@ public abstract class Action
 	 * @ordered
 	 */
 	
-	protected boolean isInitialized;
+	protected List<Resource> freeresources;
 	
 	/**
 	 * <!-- begin-user-doc -->
@@ -34,18 +38,17 @@ public abstract class Action
 	 * @ordered
 	 */
 	
-	protected int totalTime;
+	protected int length;
 	
 
 	/**
-	 * <br>
 	 * <!-- begin-user-doc -->
 	 * <!--  end-user-doc  -->
 	 * @generated
 	 * @ordered
 	 */
 	
-	public Action(int timeToEnd) {
+	public ResourcePool(int size) {
 		super();
 		// TODO construct me	
 	}
@@ -57,7 +60,10 @@ public abstract class Action
 	 * @ordered
 	 */
 	
-	public abstract boolean isReady() ;
+	public R provideResource() {
+		// TODO implement me
+		return null;	
+	}
 	
 	/**
 	 * <!-- begin-user-doc -->
@@ -66,25 +72,7 @@ public abstract class Action
 	 * @ordered
 	 */
 	
-	public abstract boolean isInProgess() ;
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	public abstract boolean isFinished() ;
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	public void doStep() {
+	public void freeResource(Resource r) {
 		// TODO implement me	
 	}
 	
@@ -95,7 +83,7 @@ public abstract class Action
 	 * @ordered
 	 */
 	
-	public abstract void reallyDoOneStep() ;
+	protected abstract R getType() ;
 	
 }
 
