@@ -2,49 +2,32 @@ package resource.resourcePool;
 import resource.Cubicle;
 
 
-/**
- * <!-- begin-user-doc -->
- * <!--  end-user-doc  -->
- * @generated
- */
 
 public class CubiclePool extends ResourcePool<Cubicle>
 {
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
+
 	
 	public CubiclePool(int length) {
-		super(length);
-		// TODO construct me	
+		super(length);	
 	}
 	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
 	
 	public Cubicle getType() {
-		// TODO implement me
-		return null;	
+		return new Cubicle();	
 	}
 	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
 	
 	public String description() {
-		// TODO implement me
-		return "";	
+		String description = "There are " + this.resources.size() + " available :\n";
+		for (Cubicle b : this.resources) {
+			description += " -" + b.description() + " here \n";
+		}
+		description += "\nThere are "+ this.freeresources.size() + "free :\n";
+		for (Cubicle b2 : this.freeresources) {
+			description +=" -" + b2.description() + " free\n";
+		}
+		return description;	
 	}
 	
 }
