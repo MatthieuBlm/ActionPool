@@ -1,4 +1,5 @@
 package action.scheduler;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,51 +8,17 @@ import exception.ActionFinishedException;
 import action.Action;
 
 
-/**
- * <!-- begin-user-doc -->
- * <!--  end-user-doc  -->
- * @generated
- */
 
-public abstract class Scheduler extends Action
-{
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
+public abstract class Scheduler extends Action{
 	protected List<Action> actions;
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
 	protected boolean isInitialized;
 	
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
+	protected abstract Action nextAction();
 	
 	public Scheduler() {
 		super(0);
 		this.actions = new ArrayList<Action>();
 	}
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
 	
 	public void addAction(Action a) {
 		isInitialized = true;
@@ -64,14 +31,7 @@ public abstract class Scheduler extends Action
 			actions.add(a);
 		}
 	}
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
+
 	public boolean isReady() {
 		return (isInitialized && isReady);	
 	}
@@ -81,13 +41,6 @@ public abstract class Scheduler extends Action
 	public boolean isFinished() {
 		return (isInitialized && !isReady() && actions.isEmpty());
 	}
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
 	
 	public void reallyDoOneStep() {
 		isReady= false;
@@ -106,8 +59,6 @@ public abstract class Scheduler extends Action
 		return actions;
 	}
 	
-	protected abstract Action nextAction();
-
 	@Override
 	public boolean isInProgess() {
 		return (isInitialized && !isFinished() && !isFinished());

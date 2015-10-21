@@ -7,8 +7,7 @@ package action.scheduler;
  * @generated
  */
 
-public class SwimmingPool extends Fair
-{
+public class SwimmingPool extends Fair{
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!--  end-user-doc  -->
@@ -49,6 +48,12 @@ public class SwimmingPool extends Fair
 	public String getName() {
 		// TODO implement me
 		return "";	
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 	
 }
