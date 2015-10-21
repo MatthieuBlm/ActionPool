@@ -8,7 +8,7 @@ import resource.resourcePool.CubiclePool;
 public class Swimmer extends Sequential{
 	private String name;	
 	private BasketPool resourceBasket;
-	private CubiclePool resourceCubicle;	
+	private CubiclePool resourceCubicle;
 	private int timeToUndress;
 	private int timeToSwim;
 	private int timeToDress;
@@ -24,27 +24,19 @@ public class Swimmer extends Sequential{
 		this.timeToDress = timeToDress;
 	}
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#hashCode()
-	 */
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
-		result = prime * result
-				+ ((resourceBasket == null) ? 0 : resourceBasket.hashCode());
-		result = prime * result
-				+ ((resourceCubicle == null) ? 0 : resourceCubicle.hashCode());
+		result = prime * result + ((resourceBasket == null) ? 0 : resourceBasket.hashCode());
+		result = prime * result + ((resourceCubicle == null) ? 0 : resourceCubicle.hashCode());
 		result = prime * result + timeToDress;
 		result = prime * result + timeToSwim;
 		result = prime * result + timeToUndress;
 		return result;
 	}
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)

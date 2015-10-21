@@ -1,66 +1,23 @@
 package action.foreseeable;
 import action.Action;
 
-
-/**
- * <!-- begin-user-doc -->
- * <!--  end-user-doc  -->
- * @generated
- */
-
-public class Foreseeable extends Action
-{
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * attribute which contains the remaining time 
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
+public class Foreseeable extends Action{
 	protected int remainingTime;
+	protected int totalTime;
 	
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 */
 	public Foreseeable(int totalTime){
-		super(totalTime);
+		super();
 		this.remainingTime = totalTime;
+		this.totalTime = totalTime;
 	}
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
 	
 	public boolean isReady() {
 		return (remainingTime == totalTime);	
 	}
 	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
 	public boolean isInProgress() {
 		return (!isReady() && !isFinished());	
 	}
-	
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
 	
 	public void reallyDoOneStep() {
 		remainingTime--;
@@ -74,6 +31,14 @@ public class Foreseeable extends Action
 	@Override
 	public boolean isFinished() {
 		return (remainingTime <= 0);
+	}
+
+	public int getTotalTime() {
+		return totalTime;
+	}
+
+	public void setTotalTime(int totalTime) {
+		this.totalTime = totalTime;
 	}
 
 	@Override

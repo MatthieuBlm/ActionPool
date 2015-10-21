@@ -1,12 +1,6 @@
 package action.scheduler;
 
 
-/**
- * <!-- begin-user-doc -->
- * <!--  end-user-doc  -->
- * @generated
- */
-
 public class SwimmingPool extends Fair{
 	public String name;
 	
