@@ -1,4 +1,5 @@
 package action.scheduler;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -6,52 +7,16 @@ import exception.ActionFinishedException;
 
 import action.Action;
 
-
-/**
- * <!-- begin-user-doc -->
- * <!--  end-user-doc  -->
- * @generated
- */
-
-public abstract class Scheduler extends Action
-{
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
+public abstract class Scheduler extends Action{
 	protected List<Action> actions;
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
 	protected boolean isInitialized;
 	
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
+	protected abstract Action nextAction();
 	
 	public Scheduler() {
-		super(0);
+		super();
 		this.actions = new ArrayList<Action>();
 	}
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
 	
 	public void addAction(Action a) {
 		isInitialized = true;
@@ -64,30 +29,15 @@ public abstract class Scheduler extends Action
 			actions.add(a);
 		}
 	}
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
+
 	public boolean isReady() {
 		return (isInitialized && isReady);	
 	}
-	
 	
 	@Override
 	public boolean isFinished() {
 		return (isInitialized && !isReady() && actions.isEmpty());
 	}
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
 	
 	public void reallyDoOneStep() {
 		isReady= false;
@@ -106,20 +56,37 @@ public abstract class Scheduler extends Action
 		return actions;
 	}
 	
-	protected abstract Action nextAction();
-
 	@Override
 	public boolean isInProgess() {
-		return (isInitialized && !isFinished() && !isFinished());
+		return (isInitialized && !isFinished() && !isReady());
 	}
-	
+
 	@Override
-	public boolean equals(Object o) {
-		if (o instanceof Scheduler) {
-			Scheduler other = (Scheduler) o;
-			return ((other.getTotalTime() == this.totalTime) && (this.getListAction().size() == other.getListAction().size()));
-		}
-		return false;
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((actions == null) ? 0 : actions.hashCode());
+		result = prime * result + (isInitialized ? 1231 : 1237);
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Scheduler other = (Scheduler) obj;
+		if (actions == null) {
+			if (other.actions != null)
+				return false;
+		} else if (!actions.equals(other.actions))
+			return false;
+		if (isInitialized != other.isInitialized)
+			return false;
+		return true;
 	}
 	
 }
