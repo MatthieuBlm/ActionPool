@@ -1,5 +1,7 @@
 package resource.resourcePool;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 import resource.Resource;
 
@@ -13,76 +15,42 @@ import resource.Resource;
 
 public abstract class ResourcePool<R extends Resource>
 {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	protected List<Resource> resources;
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	protected List<Resource> freeresources;
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
+
+	protected List<R> resources;
+	protected List<R> freeresources;
 	protected int length;
 	
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
 	
 	public ResourcePool(int size) {
 		super();
-		// TODO construct me	
+		this.length = size;	
+		this.resources = new ArrayList<R>();
+		for (int i=0; i<size; i++) {
+			this.resources.add(getType());
+		}
+		this.freeresources = new ArrayList<R>();
 	}
 	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
 	
-	public R provideResource() {
-		// TODO implement me
-		return null;	
+	public R provideResource() throws NoSuchElementException {
+		if (this.resources.size() == 0) {
+			throw new NoSuchElementException();
+		}
+		R r = this.resources.get(0);
+		this.freeresources.add(r);
+		return r;
 	}
 	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	public void freeResource(Resource r) {
-		// TODO implement me	
+
+	public void freeResource(R r) throws IllegalArgumentException{
+			if (!this.freeresources.contains(r)) {
+				throw new IllegalArgumentException();
+			}
+			this.freeresources.remove(r);
+			this.resources.add(r);
 	}
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
+
 	protected abstract R getType() ;
 	
 }

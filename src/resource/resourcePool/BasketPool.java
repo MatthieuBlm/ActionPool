@@ -12,40 +12,27 @@ import resource.Basket;
 public class BasketPool extends ResourcePool<Basket>
 {
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
 	
 	public BasketPool(int nb) {
-		super(nb);
-		// TODO construct me	
+		super(nb);	
 	}
 	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
 	
 	public Basket getType() {
-		// TODO implement me
-		return null;	
+		return new Basket();	
 	}
 	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
+
 	public String description() {
-		// TODO implement me
-		return "";	
+		String description = "There are " + this.resources.size() + " available :\n";
+		for (Basket b : this.resources) {
+			description += " -" + b.description() + " here \n";
+		}
+		description += "\nThere are "+ this.freeresources.size() + "free :\n";
+		for (Basket b2 : this.freeresources) {
+			description +=" -" + b2.description() + " free\n";
+		}
+		return description;	
 	}
 	
 }
