@@ -34,7 +34,7 @@ public abstract class TestScheduler extends TestAction {
 		Scheduler scheduler= createScheduler(action1);
 		
 		List<Action> actions = scheduler.getListAction();
-		assertSame(1, actions.size());
+		assertEquals(1, actions.size());
 		assertEquals(action1, actions.get(0));
 		scheduler.addAction(action2);
 		List<Action> actions2 = scheduler.getListAction();

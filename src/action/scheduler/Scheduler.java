@@ -113,5 +113,14 @@ public abstract class Scheduler extends Action
 		return (isInitialized && !isFinished() && !isFinished());
 	}
 	
+	@Override
+	public boolean equals(Object o) {
+		if (o instanceof Scheduler) {
+			Scheduler other = (Scheduler) o;
+			return ((other.getTotalTime() == this.totalTime) && (this.getListAction().size() == other.getListAction().size()));
+		}
+		return false;
+	}
+	
 }
 

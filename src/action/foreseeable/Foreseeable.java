@@ -75,6 +75,15 @@ public class Foreseeable extends Action
 	public boolean isFinished() {
 		return (remainingTime <= 0);
 	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (o instanceof Foreseeable) {
+			Foreseeable other = (Foreseeable) o;
+			return other.getTotalTime() == this.totalTime;
+		}
+		return false;
+	}
 	
 }
 
