@@ -14,7 +14,7 @@ public abstract class Action{
 
 	public Action(int timeToEnd) {
 		this.totalTime= timeToEnd;	
-		isReady =true;
+		isReady = true;
 	}
 	
 	public final void doStep() throws ActionFinishedException{

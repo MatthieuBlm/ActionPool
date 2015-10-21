@@ -7,8 +7,6 @@ import exception.ActionFinishedException;
 
 import action.Action;
 
-
-
 public abstract class Scheduler extends Action{
 	protected List<Action> actions;
 	protected boolean isInitialized;
@@ -36,7 +34,6 @@ public abstract class Scheduler extends Action{
 		return (isInitialized && isReady);	
 	}
 	
-	
 	@Override
 	public boolean isFinished() {
 		return (isInitialized && !isReady() && actions.isEmpty());
@@ -61,7 +58,7 @@ public abstract class Scheduler extends Action{
 	
 	@Override
 	public boolean isInProgess() {
-		return (isInitialized && !isFinished() && !isFinished());
+		return (isInitialized && !isFinished() && !isReady());
 	}
 	
 	@Override
