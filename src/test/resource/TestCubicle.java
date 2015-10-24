@@ -1,19 +1,22 @@
 package test.resource;
 
-import static org.junit.Assert.*;
 
-import org.junit.Test;
 
-public class TestCubicle {
+import resource.Cubicle;
+import resource.Resource;
 
-	@Test
-	public void testCubicle() {
-		fail("Not yet implemented");
+
+public class TestCubicle extends TestResource{
+
+
+	@Override
+	protected Resource createResource() {
+		return new Cubicle();
 	}
 
-	@Test
-	public void testDescription() {
-		fail("Not yet implemented");
+	@Override
+	protected String resourceString() {
+		return "Cubicle";
 	}
 
 }

@@ -1,19 +1,21 @@
 package test.resource;
 
-import static org.junit.Assert.*;
 
-import org.junit.Test;
+import resource.Basket;
+import resource.Resource;
 
-public class TestBasket {
 
-	@Test
-	public void testBasket() {
-		fail("Not yet implemented");
+public class TestBasket extends TestResource{
+
+	
+	@Override
+	protected Resource createResource() {
+		return new Basket();
 	}
 
-	@Test
-	public void testDescription() {
-		fail("Not yet implemented");
+	@Override
+	protected String resourceString() {
+		return "Basket";
 	}
 
 }

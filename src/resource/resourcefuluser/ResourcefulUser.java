@@ -2,20 +2,20 @@ package resource.resourcefuluser;
 import resource.Resource;
 
 
-public class ResourcefulUser{
-	public Resource resource;
+public class ResourcefulUser<R extends Resource>{
+	public R resource;
 	
 	public ResourcefulUser() {
 		super();
 		// TODO construct me	
 	}
 	
-	public Resource getResource() {
+	public R getResource() {
 		// TODO implement me
 		return null;	
 	}
 	
-	public void setResource(Resource resource) {
+	public void setResource(R resource) {
 		// TODO implement me	
 	}
 	

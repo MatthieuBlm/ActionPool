@@ -3,38 +3,25 @@
  */
 package test.resource.resourcepool;
 
-import static org.junit.Assert.*;
 
-import org.junit.Test;
+import resource.Cubicle;
+import resource.resourcePool.CubiclePool;
+import resource.resourcePool.ResourcePool;
 
 /**
  * @author meyer
  *
  */
-public class TestCubiclePool extends TestResourcePool {
+public class TestCubiclePool extends TestResourcePool<Cubicle> {
 
-	/**
-	 * Test method for {@link resource.resourcePool.CubiclePool#CubiclePool(int)}.
-	 */
-	@Test
-	public void testCubiclePool() {
-		fail("Not yet implemented");
+	@Override
+	protected ResourcePool<Cubicle> createResourcePool(int i) {
+		return new CubiclePool(i);
 	}
 
-	/**
-	 * Test method for {@link resource.resourcePool.CubiclePool#getType()}.
-	 */
-	@Test
-	public void testGetType() {
-		fail("Not yet implemented");
-	}
-
-	/**
-	 * Test method for {@link resource.resourcePool.CubiclePool#description()}.
-	 */
-	@Test
-	public void testDescription() {
-		fail("Not yet implemented");
+	@Override
+	protected Cubicle getResource() {
+		return new Cubicle();
 	}
 
 }

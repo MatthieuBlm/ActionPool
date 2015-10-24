@@ -3,39 +3,28 @@
  */
 package test.resource.resourcepool;
 
-import static org.junit.Assert.*;
 
-import org.junit.Test;
+import resource.Basket;
+
+import resource.resourcePool.BasketPool;
+import resource.resourcePool.ResourcePool;
 
 /**
  * @author meyer
  *
  */
-public class TestBasketPool extends TestResourcePool {
+public class TestBasketPool extends TestResourcePool<Basket> {
 
-	/**
-	 * Test method for {@link resource.resourcePool.BasketPool#BasketPool(int)}.
-	 */
-	@Test
-	public void testBasketPool() {
-		fail("Not yet implemented");
+
+	@Override
+	protected ResourcePool<Basket> createResourcePool(int i) {
+		return new BasketPool(i);
 	}
 
-	/**
-	 * Test method for {@link resource.resourcePool.BasketPool#getType()}.
-	 * @return 
-	 */
-	@Test
-	public void testGetType() {
-		fail("Not yet implemented");
+	@Override
+	protected Basket getResource() {
+		return new Basket();
 	}
 
-	/**
-	 * Test method for {@link resource.resourcePool.BasketPool#description()}.
-	 */
-	@Test
-	public void testDescription() {
-		fail("Not yet implemented");
-	}
 
 }

@@ -38,6 +38,7 @@ public abstract class ResourcePool<R extends Resource>
 			throw new NoSuchElementException();
 		}
 		R r = this.resources.get(0);
+		this.resources.remove(0);
 		this.freeresources.add(r);
 		return r;
 	}
@@ -52,6 +53,21 @@ public abstract class ResourcePool<R extends Resource>
 	}
 
 	protected abstract R getType() ;
+
+
+	public List<R> getResources() {
+		return resources;
+	}
+
+
+	public List<R> getFreeresources() {
+		return freeresources;
+	}
+
+
+	public int getLength() {
+		return length;
+	}
 	
 }
 
