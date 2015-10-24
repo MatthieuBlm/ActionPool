@@ -26,7 +26,7 @@ public abstract class TestForeseeable extends TestAction {
 	@Before
 	public void init() {
 		super.init();
-		this.action2 = (Foreseeable) createAction(4);
+		this.action2 = (Foreseeable) createActionForeseeable(4);
 	}
 	
 	/**
@@ -35,9 +35,37 @@ public abstract class TestForeseeable extends TestAction {
 	 */
 	@Test
 	public void testOnlyOneValidState2() throws ActionFinishedException {
-		onlyOneValidStateAtEachMoment(createAction(10));
+		onlyOneValidStateAtEachMoment(createActionForeseeable(10));
 	}
 
+	/**
+	 * Test method for {@link action.Action#isReady()}.
+	 * Test method for {@link action.Action#doStep()}.
+	 * Test method for {@link action.Action#isInProgess()}.
+	 * Test method for {@link action.Action#isFinished()}.
+	 * @throws ActionFinishedException 
+	 */
+	@Test
+	public void testAction() throws ActionFinishedException {
+		if (action2.getTotalTime() == 2) {
+			assertTrue(action2.isReady());
+			assertFalse(this.action2.isInProgess());
+			assertFalse(this.action2.isFinished());
+		
+			action2.doStep();
+			
+			assertFalse(action2.isReady());
+			assertTrue(this.action2.isInProgess());
+			assertFalse(this.action2.isFinished());
+			
+			action2.doStep();
+			
+			assertFalse(action2.isReady());
+			assertFalse(this.action2.isInProgess());
+			assertTrue(this.action2.isFinished());
+		}
+	}
+	
 	/**
 	 * Test method for {@link action.Action#reallyDoOneStep()}.
 	 * @throws ActionFinishedException 
@@ -68,5 +96,6 @@ public abstract class TestForeseeable extends TestAction {
 		
 	}
 	
+	protected abstract Foreseeable createActionForeseeable(int n);
 	
 }

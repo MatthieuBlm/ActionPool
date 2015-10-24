@@ -9,7 +9,7 @@ import org.junit.Test;
 
 import exception.ActionFinishedException;
 
-import action.Action;
+import action.foreseeable.Foreseeable;
 import action.scheduler.Scheduler;
 
 /**
@@ -26,8 +26,8 @@ public abstract class TestFair extends TestScheduler {
 	 */
 	@Test
 	public void testFair() throws ActionFinishedException {
-		Action action1= createAction(3);
-		Action action2= createAction(2);
+		Foreseeable action1= createActionForeseeable(3);
+		Foreseeable action2= createActionForeseeable(2);
 		
 		Scheduler scheduler= createScheduler(action1);
 		scheduler.addAction(action2);

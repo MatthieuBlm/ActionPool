@@ -10,6 +10,8 @@ import org.junit.Test;
 import exception.ActionFinishedException;
 
 import action.Action;
+import action.foreseeable.Foreseeable;
+import action.foreseeable.NStepAction;
 import action.foreseeable.OneStepAction;
 import action.scheduler.Scheduler;
 import action.scheduler.WrongSequentialEntity;
@@ -42,9 +44,15 @@ public class TestWrongSequentialEntity extends TestSequential {
 	}
 
 
-	public Action createAction(int nb) {
+	@Override
+	protected Foreseeable createActionForeseeable(int n) {
+		return new NStepAction(n);
+	}
+
+
+	@Override
+	protected Action createAction() {
 		return new OneStepAction();
-		/* return new NStepAction(); */
 	}
 
 }

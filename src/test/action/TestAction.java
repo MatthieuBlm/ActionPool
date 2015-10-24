@@ -23,7 +23,7 @@ public abstract class TestAction {
 	
 	@Before
 	public void init() {
-		this.action = createAction(2);
+		this.action = createAction();
 	}
 	
 	
@@ -33,10 +33,10 @@ public abstract class TestAction {
 	 */
 	@Test
 	public void testOnlyOneValidState() throws ActionFinishedException {
-		onlyOneValidStateAtEachMoment(createAction(1));
+		onlyOneValidStateAtEachMoment(createAction());
 	}
 	
-	protected abstract Action createAction(int nb);
+	protected abstract Action createAction();
 
 	protected void onlyOneValidStateAtEachMoment(Action act) throws ActionFinishedException {
 		assertTrue(act.isReady());
@@ -70,32 +70,6 @@ public abstract class TestAction {
 		action.doStep();
 	}
 	
-	/**
-	 * Test method for {@link action.Action#isReady()}.
-	 * Test method for {@link action.Action#doStep()}.
-	 * Test method for {@link action.Action#isInProgess()}.
-	 * Test method for {@link action.Action#isFinished()}.
-	 * @throws ActionFinishedException 
-	 */
-	@Test
-	public void testAction() throws ActionFinishedException {
-		if (action.getTotalTime() == 2) {
-			assertTrue(action.isReady());
-			assertFalse(this.action.isInProgess());
-			assertFalse(this.action.isFinished());
-		
-			action.doStep();
-			
-			assertFalse(action.isReady());
-			assertTrue(this.action.isInProgess());
-			assertFalse(this.action.isFinished());
-			
-			action.doStep();
-			
-			assertFalse(action.isReady());
-			assertFalse(this.action.isInProgess());
-			assertTrue(this.action.isFinished());
-		}
-	}
+	
 
 }

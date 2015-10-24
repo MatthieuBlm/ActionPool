@@ -10,6 +10,7 @@ import org.junit.Test;
 
 import exception.ActionFinishedException;
 import action.Action;
+import action.foreseeable.Foreseeable;
 import action.foreseeable.OneStepAction;
 
 /**
@@ -20,7 +21,7 @@ public class TestOneStepAction extends TestForeseeable {
 
 
 	@Override
-	protected Action createAction(int nb) {
+	protected Foreseeable createActionForeseeable(int nb) {
 		return new OneStepAction();
 	}
 	
@@ -42,6 +43,11 @@ public class TestOneStepAction extends TestForeseeable {
 		assertFalse(action.isReady());
 		assertFalse(this.action.isInProgess());
 		assertTrue(this.action.isFinished());
+	}
+
+	@Override
+	protected Action createAction() {
+		return new OneStepAction();
 	}
 	
 }

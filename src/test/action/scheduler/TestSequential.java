@@ -7,7 +7,7 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-import action.Action;
+import action.foreseeable.Foreseeable;
 import action.scheduler.Scheduler;
 import exception.ActionFinishedException;
 
@@ -24,8 +24,8 @@ public abstract class TestSequential extends TestScheduler {
 	 */
 	@Test
 	public void testReallyDoOneStepWithDoStepScheduler1() throws ActionFinishedException {
-		Action action1= createAction(2);
-		Action action2= createAction(1);
+		Foreseeable action1= createActionForeseeable(2);
+		Foreseeable action2 = createActionForeseeable(1);
 		
 		Scheduler scheduler= createScheduler(action1);
 		scheduler.addAction(action2);

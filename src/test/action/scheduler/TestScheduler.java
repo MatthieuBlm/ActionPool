@@ -12,6 +12,7 @@ import org.junit.Test;
 import exception.ActionFinishedException;
 
 import action.Action;
+import action.foreseeable.Foreseeable;
 import action.scheduler.Scheduler;
 
 import test.action.TestAction;
@@ -28,8 +29,8 @@ public abstract class TestScheduler extends TestAction {
 	 */
 	@Test
 	public void testAddAction() {
-		Action action1= createAction(2);
-		Action action2= createAction(1);
+		Action action1= createActionForeseeable(2);
+		Action action2= createActionForeseeable(1);
 		
 		Scheduler scheduler= createScheduler(action1);
 		
@@ -49,7 +50,7 @@ public abstract class TestScheduler extends TestAction {
 
 	@Test
 	public void testSchedulerWithScheduler() throws ActionFinishedException {
-		Action action1 = createAction(2);
+		Foreseeable action1 = createActionForeseeable(2);
 		Action subScheduler = createScheduler(action1);
 		
 		Scheduler scheduler = createScheduler(subScheduler);
@@ -69,5 +70,7 @@ public abstract class TestScheduler extends TestAction {
 		}
 
 	}
+	
+	protected abstract Foreseeable createActionForeseeable(int n);
 
 }
