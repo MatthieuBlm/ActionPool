@@ -1,10 +1,10 @@
-package test.resource;
+package src.test.resource;
 
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import resource.Resource;
+import src.resource.Resource;
 
 
 public abstract class TestResource {

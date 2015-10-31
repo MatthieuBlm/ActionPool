@@ -1,17 +1,17 @@
 /**
  * 
  */
-package test.action.foreseeable;
+package src.test.action.foreseeable;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-import exception.ActionFinishedException;
-import action.Action;
-import action.foreseeable.Foreseeable;
-import action.foreseeable.OneStepAction;
+import src.exception.ActionFinishedException;
+import src.action.Action;
+import src.action.foreseeable.Foreseeable;
+import src.action.foreseeable.OneStepAction;
 
 /**
  * @author meyer

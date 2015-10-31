@@ -1,39 +1,31 @@
-package action;
+package src.action;
 
-public class FreeResourceAction extends Action{
 
-	public FreeResourceAction() {
-		// TODO Auto-generated constructor stub
-	}
+import src.resource.Resource;
+import src.resource.resourcePool.ResourcePool;
+import src.resource.resourcefuluser.ResourcefulUser;
 
-	@Override
-	public boolean isReady() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean isInProgess() {
-		// TODO Auto-generated method stub
-		return false;
+public class FreeResourceAction<R extends Resource> extends ResourceAction<R>{
+	
+	public FreeResourceAction(ResourcePool<R> resPool, ResourcefulUser<R> resfulUser) {
+		super(resPool, resfulUser);
 	}
 
 	@Override
 	public boolean isFinished() {
-		// TODO Auto-generated method stub
-		return false;
+		return (this.resfulUser.getResource().equals(null));
 	}
 
 	@Override
 	public void reallyDoOneStep() {
-		// TODO Auto-generated method stub
-		
+		super.reallyDoOneStep();
+		try {
+			this.resourcePool.freeResource(this.resfulUser.getResource());
+			this.resfulUser.resetResource();
+		} catch (IllegalArgumentException e) {
+			System.out.println("This resource can't go in this pool\n");
+		}
 	}
 
-	@Override
-	public boolean equals(Object o) {
-		// TODO Auto-generated method stub
-		return false;
-	}
 
 }

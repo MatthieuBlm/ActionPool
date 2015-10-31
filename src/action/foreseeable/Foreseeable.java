@@ -1,5 +1,5 @@
-package action.foreseeable;
-import action.Action;
+package src.action.foreseeable;
+import src.action.Action;
 
 public class Foreseeable extends Action{
 	protected int remainingTime;
@@ -41,7 +41,6 @@ public class Foreseeable extends Action{
 		this.totalTime = totalTime;
 	}
 
-	@Override
 	public boolean equals(Object o) {
 		if (o instanceof Foreseeable) {
 			Foreseeable other = (Foreseeable) o;

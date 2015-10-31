@@ -1,11 +1,11 @@
-package test.action.scheduler;
+package src.test.action.scheduler;
 
-import action.Action;
-import action.foreseeable.Foreseeable;
-import action.foreseeable.NStepAction;
-import action.foreseeable.OneStepAction;
-import action.scheduler.Scheduler;
-import action.scheduler.WrongFairEntity;
+import src.action.Action;
+import src.action.foreseeable.Foreseeable;
+import src.action.foreseeable.NStepAction;
+import src.action.foreseeable.OneStepAction;
+import src.action.scheduler.Scheduler;
+import src.action.scheduler.WrongFairEntity;
 
 public class TestWrongFairEntity extends TestFair {
 

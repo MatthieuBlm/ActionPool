@@ -1,11 +1,11 @@
 /**
  * 
  */
-package test.action.foreseeable;
+package src.test.action.foreseeable;
 
-import action.Action;
-import action.foreseeable.Foreseeable;
-import action.foreseeable.NStepAction;
+import src.action.Action;
+import src.action.foreseeable.Foreseeable;
+import src.action.foreseeable.NStepAction;
 
 /**
  * @author meyer

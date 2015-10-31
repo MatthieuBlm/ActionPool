@@ -5,4 +5,4 @@
  * @author meyer
  *
  */
-package test;
+package src.test;

@@ -1,14 +1,14 @@
 /**
  * 
  */
-package test.resource.resourcepool;
+package src.test.resource.resourcepool;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import resource.Resource;
-import resource.resourcePool.ResourcePool;
+import src.resource.Resource;
+import src.resource.resourcePool.ResourcePool;
 import java.util.NoSuchElementException;
 
 

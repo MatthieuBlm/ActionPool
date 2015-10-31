@@ -1,7 +1,7 @@
 /**
  * 
  */
-package exception;
+package src.exception;
 
 /**
  * @author meyer

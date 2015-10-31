@@ -1,8 +1,8 @@
-package test.resource;
+package src.test.resource;
 
 
-import resource.Basket;
-import resource.Resource;
+import src.resource.Basket;
+import src.resource.Resource;
 
 
 public class TestBasket extends TestResource{

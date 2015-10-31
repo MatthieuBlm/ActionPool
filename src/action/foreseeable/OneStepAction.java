@@ -1,7 +1,7 @@
 /**
  * 
  */
-package action.foreseeable;
+package src.action.foreseeable;
 
 /**
  * @author meyer

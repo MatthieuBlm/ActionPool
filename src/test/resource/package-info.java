@@ -5,4 +5,4 @@
  * @author meyer
  *
  */
-package test.resource;
+package src.test.resource;

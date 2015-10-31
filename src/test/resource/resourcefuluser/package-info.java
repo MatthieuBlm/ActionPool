@@ -5,4 +5,4 @@
  * @author meyer
  *
  */
-package test.resource.resourcefuluser;
+package src.test.resource.resourcefuluser;

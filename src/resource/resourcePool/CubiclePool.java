@@ -1,5 +1,5 @@
-package resource.resourcePool;
-import resource.Cubicle;
+package src.resource.resourcePool;
+import src.resource.Cubicle;
 
 
 

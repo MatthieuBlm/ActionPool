@@ -1,39 +1,34 @@
-package action;
+package src.action;
 
-public class TakeResourceAction extends Action{
+import java.util.NoSuchElementException;
 
-	public TakeResourceAction() {
-		// TODO Auto-generated constructor stub
-	}
+import src.resource.Resource;
+import src.resource.resourcePool.ResourcePool;
+import src.resource.resourcefuluser.ResourcefulUser;
 
-	@Override
-	public boolean isReady() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean isInProgess() {
-		// TODO Auto-generated method stub
-		return false;
+public class TakeResourceAction<R extends Resource> extends ResourceAction<R>{
+	
+	public TakeResourceAction (ResourcePool<R> resPool, ResourcefulUser<R> resfulUser) {
+		super(resPool, resfulUser);
 	}
 
 	@Override
 	public boolean isFinished() {
-		// TODO Auto-generated method stub
-		return false;
+		if (this.resfulUser.getResource() == null) {
+			return false;
+		}
+		return true;
 	}
 
 	@Override
 	public void reallyDoOneStep() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public boolean equals(Object o) {
-		// TODO Auto-generated method stub
-		return false;
+		try {
+			isReady = false;
+			R res = this.resourcePool.provideResource();
+			this.resfulUser.setResource(res);
+		} catch (NoSuchElementException e) {
+			System.out.println("There aren't any resources\n");
+		}	
 	}
 
 }

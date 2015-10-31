@@ -1,16 +1,16 @@
 /**
  * 
  */
-package test.action;
+package src.test.action;
 
 import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import exception.ActionFinishedException;
+import src.exception.ActionFinishedException;
 
-import action.Action;
+import src.action.Action;
 
 /**
  * @author meyer

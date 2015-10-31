@@ -1,6 +1,6 @@
-package action;
+package src.action;
 
-import exception.ActionFinishedException;
+import src.exception.ActionFinishedException;
 
 public abstract class Action{
 	protected boolean isReady;
@@ -9,7 +9,6 @@ public abstract class Action{
 	public abstract boolean isInProgess() ;
 	public abstract boolean isFinished();
 	public abstract void reallyDoOneStep() ;
-	public abstract boolean equals(Object o);
 
 	public Action() {
 		isReady = true;

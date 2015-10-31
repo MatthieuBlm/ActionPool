@@ -5,4 +5,4 @@
  * @author meyer
  *
  */
-package test.action;
+package src.test.action;

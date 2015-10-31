@@ -1,6 +1,7 @@
-package action.scheduler;
-import resource.resourcePool.BasketPool;
-import resource.resourcePool.CubiclePool;
+package src.action.scheduler;
+
+import src.resource.resourcePool.BasketPool;
+import src.resource.resourcePool.CubiclePool;
 
 
 

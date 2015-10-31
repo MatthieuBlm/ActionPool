@@ -1,7 +1,7 @@
 /**
  * 
  */
-package test.action.foreseeable;
+package src.test.action.foreseeable;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -9,11 +9,11 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.Test;
 
-import exception.ActionFinishedException;
+import src.exception.ActionFinishedException;
 
-import action.foreseeable.Foreseeable;
+import src.action.foreseeable.Foreseeable;
 
-import test.action.TestAction;
+import src.test.action.TestAction;
 
 /**
  * @author meyer

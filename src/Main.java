@@ -1,7 +1,9 @@
-import resource.resourcePool.BasketPool;
-import resource.resourcePool.CubiclePool;
-import action.scheduler.Swimmer;
-import action.scheduler.SwimmingPool;
+package src;
+
+import src.resource.resourcePool.BasketPool;
+import src.resource.resourcePool.CubiclePool;
+import src.action.scheduler.Swimmer;
+import src.action.scheduler.SwimmingPool;
 
 
 

@@ -1,8 +1,6 @@
-/**
- * 
- */
+
 /**
  * @author meyer
  *
  */
-package test.resource.resourcepool;
+package src.test.resource.resourcepool;

@@ -1,14 +1,15 @@
 /**
  * 
  */
-package test.action.scheduler;
+package src.test.action.scheduler;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import action.Action;
-import action.scheduler.Scheduler;
+import src.action.Action;
+import src.action.foreseeable.Foreseeable;
+import src.action.scheduler.Scheduler;
 
 /**
  * @author meyer
@@ -24,7 +25,6 @@ public class TestSwimmer extends TestSequential {
 		fail("Not yet implemented");
 	}
 
-	@Override
 	@Test
 	protected Action createAction(int nb) {
 		// TODO Auto-generated method stub
@@ -33,6 +33,18 @@ public class TestSwimmer extends TestSequential {
 
 	@Override
 	protected Scheduler createScheduler(Action a) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	protected Foreseeable createActionForeseeable(int n) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	protected Action createAction() {
 		// TODO Auto-generated method stub
 		return null;
 	}

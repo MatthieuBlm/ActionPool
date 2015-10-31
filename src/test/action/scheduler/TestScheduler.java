@@ -1,7 +1,7 @@
 /**
  * 
  */
-package test.action.scheduler;
+package src.test.action.scheduler;
 
 import static org.junit.Assert.*;
 
@@ -9,13 +9,13 @@ import java.util.List;
 
 import org.junit.Test;
 
-import exception.ActionFinishedException;
+import src.exception.ActionFinishedException;
 
-import action.Action;
-import action.foreseeable.Foreseeable;
-import action.scheduler.Scheduler;
+import src.action.Action;
+import src.action.foreseeable.Foreseeable;
+import src.action.scheduler.Scheduler;
 
-import test.action.TestAction;
+import src.test.action.TestAction;
 
 /**
  * @author meyer

@@ -1,26 +1,22 @@
-package resource.resourcefuluser;
-import resource.Resource;
+package src.resource.resourcefuluser;
+import src.resource.Resource;
 
 
 public class ResourcefulUser<R extends Resource>{
-	public R resource;
+	protected R resource;
 	
-	public ResourcefulUser() {
-		super();
-		// TODO construct me	
-	}
+	public ResourcefulUser() {}
 	
 	public R getResource() {
-		// TODO implement me
-		return null;	
+		return resource;	
 	}
 	
 	public void setResource(R resource) {
-		// TODO implement me	
+		this.resource = resource;	
 	}
 	
 	public void resetResource() {
-		// TODO implement me	
+		this.resource = null;	
 	}
 	
 }

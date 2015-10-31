@@ -1,9 +1,9 @@
-package resource.resourcePool;
+package src.resource.resourcePool;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 
-import resource.Resource;
+import src.resource.Resource;
 
 
 /**

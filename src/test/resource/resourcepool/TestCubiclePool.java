@@ -1,12 +1,12 @@
 /**
  * 
  */
-package test.resource.resourcepool;
+package src.test.resource.resourcepool;
 
 
-import resource.Cubicle;
-import resource.resourcePool.CubiclePool;
-import resource.resourcePool.ResourcePool;
+import src.resource.Cubicle;
+import src.resource.resourcePool.CubiclePool;
+import src.resource.resourcePool.ResourcePool;
 
 /**
  * @author meyer

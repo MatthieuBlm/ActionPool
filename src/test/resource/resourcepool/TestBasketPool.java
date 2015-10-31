@@ -1,13 +1,13 @@
 /**
  * 
  */
-package test.resource.resourcepool;
+package src.test.resource.resourcepool;
 
 
-import resource.Basket;
+import src.resource.Basket;
 
-import resource.resourcePool.BasketPool;
-import resource.resourcePool.ResourcePool;
+import src.resource.resourcePool.BasketPool;
+import src.resource.resourcePool.ResourcePool;
 
 /**
  * @author meyer

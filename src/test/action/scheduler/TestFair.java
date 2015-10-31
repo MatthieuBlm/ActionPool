@@ -1,16 +1,16 @@
 /**
  * 
  */
-package test.action.scheduler;
+package src.test.action.scheduler;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import exception.ActionFinishedException;
+import src.exception.ActionFinishedException;
 
-import action.foreseeable.Foreseeable;
-import action.scheduler.Scheduler;
+import src.action.foreseeable.Foreseeable;
+import src.action.scheduler.Scheduler;
 
 /**
  * @author meyer

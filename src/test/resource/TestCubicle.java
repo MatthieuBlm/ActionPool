@@ -1,9 +1,9 @@
-package test.resource;
+package src.test.resource;
 
 
 
-import resource.Cubicle;
-import resource.Resource;
+import src.resource.Cubicle;
+import src.resource.Resource;
 
 
 public class TestCubicle extends TestResource{

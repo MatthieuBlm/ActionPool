@@ -1,11 +1,11 @@
-package action.scheduler;
+package src.action.scheduler;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import exception.ActionFinishedException;
+import src.exception.ActionFinishedException;
 
-import action.Action;
+import src.action.Action;
 
 public abstract class Scheduler extends Action{
 	protected List<Action> actions;

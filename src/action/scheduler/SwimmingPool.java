@@ -1,4 +1,4 @@
-package action.scheduler;
+package src.action.scheduler;
 
 
 public class SwimmingPool extends Fair{
