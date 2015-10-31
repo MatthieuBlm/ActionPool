@@ -13,7 +13,8 @@ public class FreeResourceAction<R extends Resource> extends ResourceAction<R>{
 
 	@Override
 	public boolean isFinished() {
-		return (this.resfulUser.getResource().equals(null));
+		if (this.resfulUser.getResource() == null) return true;
+		return false;
 	}
 
 	@Override

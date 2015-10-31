@@ -7,7 +7,6 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import src.action.Action;
 import src.action.ResourceAction;
 import src.action.TakeResourceAction;
 import src.exception.ActionFinishedException;
@@ -21,6 +20,15 @@ import src.resource.resourcefuluser.ResourcefulUser;
  */
 public abstract class TestTakeResourceAction<R extends Resource> extends TestResourceAction<R> {
 
+	@Test
+	public void testIsReadyAndIsInProgress() throws ActionFinishedException {
+		ResourceAction<R> res = createResourceAction(2);
+		assertTrue(res.isReady());
+		res.doStep();
+		assertFalse(res.isReady());
+		assertTrue(res.isFinished());
+	}
+	
 	/**
 	 * Test method for {@link src.action.TakeResourceAction#reallyDoOneStep()}.
 	 * Test method for {@link src.action.Action#doStep()}.
@@ -34,14 +42,18 @@ public abstract class TestTakeResourceAction<R extends Resource> extends TestRes
 		TakeResourceAction<R> take = new TakeResourceAction<R>(resPool, resfulUser);
 		assertTrue(take.isReady());
 		assertEquals(null, resfulUser.getResource());
+		assertSame(2, resPool.getResources().size());
 		take.doStep();
+		assertSame(1, resPool.getResources().size());
 		assertTrue(take.isFinished());
 		assertNotEquals(null,resfulUser.getResource());
 		ResourcefulUser<R> resfulUser2 = createResourceFulUser();
 		TakeResourceAction<R> take2 = new TakeResourceAction<R> (resPool, resfulUser2);
 		assertTrue(take2.isReady());
 		assertEquals(null, resfulUser2.getResource());
+		assertSame(1, resPool.getResources().size());
 		take2.doStep();
+		assertSame(0, resPool.getResources().size());
 		assertNotEquals(null, resfulUser2.getResource());
 		assertTrue(take2.isFinished());
 		ResourcefulUser<R> resfulUser3 = createResourceFulUser();
@@ -54,20 +66,5 @@ public abstract class TestTakeResourceAction<R extends Resource> extends TestRes
 		assertFalse(take3.isReady());
 		assertTrue(take3.isInProgess());
 	}
-
-	@Override
-	protected Action createAction() {
-		return this.createResourceAction(2);
-	}
-
-	@Override
-	protected ResourceAction<R> createResourceAction(int n) {
-		ResourcePool<R> resPool = createResourcePool(n);
-		ResourcefulUser<R> resfulUser = createResourceFulUser();
-		return new TakeResourceAction<R>(resPool, resfulUser);
-	}
-
-	protected abstract ResourcePool<R> createResourcePool(int i);
-	protected abstract ResourcefulUser<R> createResourceFulUser();
 
 }
