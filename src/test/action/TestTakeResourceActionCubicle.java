@@ -2,7 +2,7 @@ package src.test.action;
 
 
 import src.action.ResourceAction;
-import src.action.TakeResourceAction;
+import src.action.TakeResourceCubicleAction;
 import src.resource.Cubicle;
 import src.resource.resourcePool.CubiclePool;
 import src.resource.resourcePool.ResourcePool;
@@ -23,7 +23,7 @@ public class TestTakeResourceActionCubicle extends TestTakeResourceAction<Cubicl
 	@Override
 	protected ResourceAction<Cubicle> createResourceAction(
 			ResourcePool<Cubicle> resPool, ResourcefulUser<Cubicle> resfulUser) {
-		return new TakeResourceAction<Cubicle>(resPool, resfulUser);
+		return new TakeResourceCubicleAction(resPool, resfulUser);
 	}
 
 

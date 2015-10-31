@@ -2,7 +2,7 @@ package src.test.action;
 
 
 import src.action.ResourceAction;
-import src.action.TakeResourceAction;
+import src.action.TakeResourceBasketAction;
 import src.resource.Basket;
 import src.resource.resourcePool.BasketPool;
 import src.resource.resourcePool.ResourcePool;
@@ -23,7 +23,7 @@ public class TestTakeResourceActionBasket extends TestTakeResourceAction<Basket>
 	@Override
 	protected ResourceAction<Basket> createResourceAction(
 			ResourcePool<Basket> resPool, ResourcefulUser<Basket> resfulUser) {
-		return new TakeResourceAction<Basket>(resPool, resfulUser);
+		return new TakeResourceBasketAction(resPool, resfulUser);
 	}
 
 }

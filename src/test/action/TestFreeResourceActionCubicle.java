@@ -1,7 +1,7 @@
 package src.test.action;
 
 
-import src.action.FreeResourceAction;
+import src.action.FreeResourceCubicleAction;
 import src.action.ResourceAction;
 import src.resource.Cubicle;
 import src.resource.resourcePool.CubiclePool;
@@ -13,7 +13,7 @@ public class TestFreeResourceActionCubicle extends TestFreeResourceAction<Cubicl
 	@Override
 	protected ResourceAction<Cubicle> createResourceAction(ResourcePool<Cubicle> resPool,
 			ResourcefulUser<Cubicle> resfulUser) {
-		return new FreeResourceAction<Cubicle>(resPool, resfulUser);
+		return new FreeResourceCubicleAction(resPool, resfulUser);
 	}
 
 	@Override

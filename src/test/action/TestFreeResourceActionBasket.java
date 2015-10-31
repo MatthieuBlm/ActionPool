@@ -1,6 +1,6 @@
 package src.test.action;
 
-import src.action.FreeResourceAction;
+import src.action.FreeResourceBasketAction;
 import src.action.ResourceAction;
 import src.resource.Basket;
 import src.resource.resourcePool.BasketPool;
@@ -12,7 +12,7 @@ public class TestFreeResourceActionBasket extends TestFreeResourceAction<Basket>
 	@Override
 	protected ResourceAction<Basket> createResourceAction(ResourcePool<Basket> resPool,
 			ResourcefulUser<Basket> resfulUser) {
-		return new FreeResourceAction<Basket>(resPool, resfulUser);
+		return new FreeResourceBasketAction(resPool, resfulUser);
 	}
 
 	@Override

@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import src.action.Action;
-import src.action.FreeResourceAction;
+import src.action.ResourceAction;
 import src.exception.ActionFinishedException;
 import src.resource.Resource;
 import src.resource.resourcePool.ResourcePool;
@@ -20,13 +20,13 @@ public abstract class TestFreeResourceAction<R extends Resource> extends TestRes
 	 * @throws ActionFinishedException 
 	 */
 	@Test
-	public void testReallyTakeAction() throws ActionFinishedException {
+	public void testReallyFreeAction() throws ActionFinishedException {
 		ResourcePool<R> resPool = createResourcePool(2);
 		ResourcefulUser<R> resfulUser = createResourceFulUser();
 		R resource = resPool.provideResource();
 		resfulUser.setResource(resource);
 		assertSame(1, resPool.getResources().size());
-		FreeResourceAction<R> free = new FreeResourceAction<R>(resPool, resfulUser);
+		ResourceAction<R> free = createResourceAction(resPool, resfulUser);
 		assertTrue(free.isReady());
 		assertNotEquals(null, resfulUser.getResource());
 		free.doStep();
@@ -34,9 +34,10 @@ public abstract class TestFreeResourceAction<R extends Resource> extends TestRes
 		assertTrue(free.isFinished());
 		assertEquals(null,resfulUser.getResource());
 		ResourcefulUser<R> resfulUser2 = createResourceFulUser();
-		FreeResourceAction<R> free2 = new FreeResourceAction<R> (resPool, resfulUser2);
+		ResourceAction<R> free2 = createResourceAction(resPool, resfulUser2);
 		assertTrue(free2.isReady());
 		assertEquals(null, resfulUser2.getResource());
+		free2.doStep();
 		assertTrue(free2.isFinished());
 	}
 	

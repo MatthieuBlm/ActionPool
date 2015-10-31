@@ -1,7 +1,7 @@
 package src.action.foreseeable;
 import src.action.Action;
 
-public class Foreseeable extends Action{
+public abstract class Foreseeable extends Action{
 	protected int remainingTime;
 	protected int totalTime;
 	
