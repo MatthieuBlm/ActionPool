@@ -13,7 +13,8 @@ import src.exception.ActionFinishedException;
 import src.action.Action;
 
 /**
- * @author meyer
+ * Test the action
+ * @author Meyer Bellamy
  *
  */
 public abstract class TestAction {

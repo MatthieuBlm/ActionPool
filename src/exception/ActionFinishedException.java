@@ -4,7 +4,8 @@
 package src.exception;
 
 /**
- * @author meyer
+ * Exception for the action finished
+ * @author Meyer Bellamy
  *
  */
 @SuppressWarnings("serial")

@@ -8,7 +8,8 @@ import src.action.foreseeable.Foreseeable;
 import src.action.foreseeable.NStepAction;
 
 /**
- * @author meyer
+ * Test the Foreseaable action
+ * @author Meyer Bellamy
  *
  */
 public class TestNStepAction extends TestForeseeable {

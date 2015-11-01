@@ -14,15 +14,16 @@ import src.action.foreseeable.Foreseeable;
 import src.action.scheduler.Scheduler;
 
 /**
- * @author meyer
+ * test fair
+ * @author meyer bellamy
  *
  */
 public abstract class TestFair extends TestScheduler {
 
 	/**
-	 * Test method for {@link action.scheduler.Fair#isInProgess()}.
-	 * Test method for {@link action.scheduler.Fair#reallyDoOneStep()}.
-	 * Test method for {@link action.scheduler.Fair#Fair(int)}.
+	 * Test method for {@link src.action.scheduler.Fair#isInProgess()}.
+	 * Test method for {@link src.action.scheduler.Fair#reallyDoOneStep()}.
+	 * Test method for {@link src.action.scheduler.Fair#Fair(int)}.
 	 * @throws ActionFinishedException 
 	 */
 	@Test

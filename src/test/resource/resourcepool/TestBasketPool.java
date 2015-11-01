@@ -10,7 +10,8 @@ import src.resource.resourcePool.BasketPool;
 import src.resource.resourcePool.ResourcePool;
 
 /**
- * @author meyer
+ * Test BasketPool
+ * @author meyer bellamy
  *
  */
 public class TestBasketPool extends TestResourcePool<Basket> {

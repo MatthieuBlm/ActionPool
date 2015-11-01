@@ -6,7 +6,11 @@ import org.junit.Test;
 
 import src.resource.Resource;
 
-
+/**
+ * class to test Resource
+ * @author meyer bellamy
+ *
+ */
 public abstract class TestResource {
 
 	@Test

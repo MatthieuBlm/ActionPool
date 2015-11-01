@@ -13,10 +13,14 @@ import java.util.NoSuchElementException;
 
 
 /**
- * @author meyer
+ * Test the resource Pool
+ * @author meyer bellamy
+ * 
+ * @param <R> object extends Resource
  *
  */
 public abstract class TestResourcePool<R extends Resource> {
+
 
 
 	@Test
@@ -34,7 +38,7 @@ public abstract class TestResourcePool<R extends Resource> {
 	}
 	
 	/**
-	 * Test method for {@link resource.resourcePool.ResourcePool#provideResource()}.
+	 * Test method for {@link src.resource.resourcePool.ResourcePool#provideResource()}.
 	 */
 	@Test(expected=NoSuchElementException.class)
 	public void testProvideResourceWhenResourcePoolIsEmpty() {
@@ -43,7 +47,7 @@ public abstract class TestResourcePool<R extends Resource> {
 	}
 	
 	/**
-	 * Test method for {@link resource.resourcePool.ResourcePool#provideResource()}.
+	 * Test method for {@link src.resource.resourcePool.ResourcePool#provideResource()}.
 	 */
 	@Test(expected=NoSuchElementException.class)
 	public void testProvideResourceWhenResourcePoolIsFull() {
@@ -63,7 +67,7 @@ public abstract class TestResourcePool<R extends Resource> {
 	protected abstract R getResource();
 
 	/**
-	 * Test method for {@link resource.resourcePool.ResourcePool#freeResource(resource.Resource)}.
+	 * Test method for {@link src.resource.resourcePool.ResourcePool#freeResource(resource.Resource)}.
 	 */
 	@Test(expected=IllegalArgumentException.class)
 	public void testFreeResourceWithIllegalArgument() {
@@ -77,7 +81,7 @@ public abstract class TestResourcePool<R extends Resource> {
 	}
 	
 	/**
-	 * Test method for {@link resource.resourcePool.ResourcePool#freeResource(resource.Resource)}.
+	 * Test method for {@link src.resource.resourcePool.ResourcePool#freeResource(resource.Resource)}.
 	 */
 	@Test(expected=IllegalArgumentException.class)
 	public void testFreeResourceWithGoodArgumentButInMore() {
@@ -90,7 +94,7 @@ public abstract class TestResourcePool<R extends Resource> {
 	
 	
 	/**
-	 * Test method for {@link resource.resourcePool.ResourcePool#freeResource(resource.Resource)}.
+	 * Test method for {@link src.resource.resourcePool.ResourcePool#freeResource(resource.Resource)}.
 	 */
 	@Test
 	public void testFreeResourceWithGoodArgument() {

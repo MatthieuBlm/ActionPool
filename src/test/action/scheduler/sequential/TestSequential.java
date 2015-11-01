@@ -13,14 +13,15 @@ import src.exception.ActionFinishedException;
 import src.test.action.scheduler.TestScheduler;
 
 /**
- * @author meyer
+ * Class to test scheduler
+ * @author meyer bellamy
  *
  */
 public abstract class TestSequential extends TestScheduler {
 
 	/**
-	 * Test method for {@link action.scheduler.Scheduler#reallyDoOneStep()}.
-	 * Test method for {@link action.Action#doStep()}.
+	 * Test method for {@link src.action.scheduler.Scheduler#reallyDoOneStep()}.
+	 * Test method for {@link src.action.Action#doStep()}.
 	 * @throws ActionFinishedException 
 	 */
 	@Test

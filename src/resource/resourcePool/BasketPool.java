@@ -1,11 +1,10 @@
 package src.resource.resourcePool;
 import src.resource.Basket;
 
-
 /**
- * <!-- begin-user-doc -->
- * <!--  end-user-doc  -->
- * @generated
+ * Basket Pool contains all the Basket for the swimming pool
+ * @author Meyer Bellamy
+ *
  */
 
 
@@ -13,27 +12,22 @@ public class BasketPool extends ResourcePool<Basket>
 {
 
 	
+	/**
+	 * Constructor BasketPool
+	 * @param nb the number of Basket
+	 */
 	public BasketPool(int nb) {
 		super(nb);	
 	}
 	
 	
+	/* (non-Javadoc)
+	 * @see src.resource.resourcePool.ResourcePool#getType()
+	 */
 	public Basket getType() {
 		return new Basket();	
 	}
 	
-
-	public String description() {
-		String description = "There are " + this.resources.size() + " available :\n";
-		for (Basket b : this.resources) {
-			description += " -" + b.description() + " here \n";
-		}
-		description += "\nThere are "+ this.freeresources.size() + "free :\n";
-		for (Basket b2 : this.freeresources) {
-			description +=" -" + b2.description() + " free\n";
-		}
-		return description;	
-	}
 	
 }
 

@@ -16,7 +16,8 @@ import src.action.foreseeable.Foreseeable;
 import src.test.action.TestAction;
 
 /**
- * @author meyer
+ * Test the foreseeable action
+ * @author Meyer Bellamy
  *
  */
 public abstract class TestForeseeable extends TestAction {
@@ -39,10 +40,10 @@ public abstract class TestForeseeable extends TestAction {
 	}
 
 	/**
-	 * Test method for {@link action.Action#isReady()}.
-	 * Test method for {@link action.Action#doStep()}.
-	 * Test method for {@link action.Action#isInProgess()}.
-	 * Test method for {@link action.Action#isFinished()}.
+	 * Test method for {@link src.action.Action#isReady()}.
+	 * Test method for {@link src.action.Action#doStep()}.
+	 * Test method for {@link src.action.Action#isInProgess()}.
+	 * Test method for {@link src.action.Action#isFinished()}.
 	 * @throws ActionFinishedException 
 	 */
 	@Test
@@ -67,7 +68,7 @@ public abstract class TestForeseeable extends TestAction {
 	}
 	
 	/**
-	 * Test method for {@link action.Action#reallyDoOneStep()}.
+	 * Test method for {@link src.action.Action#reallyDoOneStep()}.
 	 * @throws ActionFinishedException 
 	 */
 	@Test

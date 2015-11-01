@@ -4,7 +4,11 @@ package src.test.resource;
 import src.resource.Basket;
 import src.resource.Resource;
 
-
+/**
+ * class to test basket
+ * @author meyer bellamy
+ *
+ */
 public class TestBasket extends TestResource{
 
 	

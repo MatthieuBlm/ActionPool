@@ -17,7 +17,8 @@ import src.action.scheduler.Scheduler;
 import src.action.scheduler.sequential.WrongSequentialEntity;
 
 /**
- * @author meyer
+ * class to test sequential
+ * @author meyer bellamy
  *
  */
 public class TestWrongSequentialEntity extends TestSequential {

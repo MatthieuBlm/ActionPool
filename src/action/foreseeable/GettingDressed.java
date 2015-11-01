@@ -8,7 +8,7 @@ public class GettingDressed extends ForeseeableSwimming {
 
 	@Override
 	protected String getDescription() {
-		return "dressing";
+		return " dressing";
 	}
 
 

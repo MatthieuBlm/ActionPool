@@ -13,7 +13,8 @@ import src.resource.resourcePool.BasketPool;
 import src.resource.resourcePool.CubiclePool;
 
 /**
- * @author meyer
+ * class to test swimmer
+ * @author meyer bellamy
  *
  */
 public class TestSwimmer {

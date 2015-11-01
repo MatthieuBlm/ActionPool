@@ -18,14 +18,15 @@ import src.action.scheduler.Scheduler;
 import src.test.action.TestAction;
 
 /**
- * @author meyer
+ * Test Scheduler
+ * @author meyer bellamy
  *
  */
 public abstract class TestScheduler extends TestAction {
 
 	
 	/**
-	 * Test method for {@link action.scheduler.Scheduler#addAction(Action)}.
+	 * Test method for {@link src.action.scheduler.Scheduler#addAction(Action)}.
 	 */
 	@Test
 	public void testAddAction() {

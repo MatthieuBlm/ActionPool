@@ -9,7 +9,8 @@ import src.resource.resourcePool.CubiclePool;
 import src.resource.resourcePool.ResourcePool;
 
 /**
- * @author meyer
+ * test Resource Pool
+ * @author meyer bellamy
  *
  */
 public class TestCubiclePool extends TestResourcePool<Cubicle> {

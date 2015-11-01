@@ -6,18 +6,40 @@ import java.util.List;
 import src.exception.ActionFinishedException;
 
 import src.action.Action;
-
+/**
+ * Scheduler contains a lot of actions 
+ * @author Meyer Bellamy
+ *
+ */
 public abstract class Scheduler extends Action{
+	/**
+	 * attribute actions with a list of all the actions
+	 */
 	protected List<Action> actions;
+	/**
+	 * attribute isInitialized is true if there are at least one action
+	 */
 	protected boolean isInitialized;
 	
+	/**
+	 * return the next action
+	 * @return the next action
+	 */
 	protected abstract Action nextAction();
 	
+	/**
+	 * Constructor Scheduler
+	 * initialize an empty list
+	 */
 	public Scheduler() {
 		super();
 		this.actions = new ArrayList<Action>();
 	}
 	
+	/**
+	 * add an action to the scheduler
+	 * @param a an action which you can add
+	 */
 	public void addAction(Action a) {
 		isInitialized = true;
 		if (a.isFinished()) {
@@ -30,63 +52,52 @@ public abstract class Scheduler extends Action{
 		}
 	}
 
+	/* (non-Javadoc)
+	 * @see src.action.Action#isReady()
+	 */
 	public boolean isReady() {
 		return (isInitialized && isReady);	
 	}
 	
+	/* (non-Javadoc)
+	 * @see src.action.Action#isFinished()
+	 */
 	@Override
 	public boolean isFinished() {
 		return (isInitialized && !isReady() && actions.isEmpty());
 	}
 	
+	/* (non-Javadoc)
+	 * @see src.action.Action#reallyDoOneStep()
+	 */
 	public void reallyDoOneStep() {
 		isReady= false;
-		Action nextAction = nextAction();
-		try {
-			nextAction.doStep();
-		} catch (ActionFinishedException e) {
-			System.out.println(e.getMessage());
-		}
-		if (nextAction.isFinished()) {
-			actions.remove(0);
-		}
+		if (!isFinished()) {
+			Action nextAction = nextAction();
+			try {
+				if (toString() != "") System.out.println(toString()+ "'s turn");
+				nextAction.doStep();		
+			} catch (ActionFinishedException e) {}
+			if (nextAction.isFinished()) {
+				actions.remove(nextAction);
+			}
+		} 
 	}
 
+	/**
+	 * return a list with all the actions
+	 * @return a list with all the actions
+	 */
 	public List<Action> getListAction() {
 		return actions;
 	}
 	
+	/* (non-Javadoc)
+	 * @see src.action.Action#isInProgess()
+	 */
 	@Override
 	public boolean isInProgess() {
 		return (isInitialized && !isFinished() && !isReady());
-	}
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((actions == null) ? 0 : actions.hashCode());
-		result = prime * result + (isInitialized ? 1231 : 1237);
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Scheduler other = (Scheduler) obj;
-		if (actions == null) {
-			if (other.actions != null)
-				return false;
-		} else if (!actions.equals(other.actions))
-			return false;
-		if (isInitialized != other.isInitialized)
-			return false;
-		return true;
 	}
 	
 }
